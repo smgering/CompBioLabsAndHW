@@ -1,27 +1,12 @@
 Lab 01 Output - Sarah Gering
 
-$ cd /Users/sarahgering/Documents/Classes/EBIO5420/compBioSandbox/CompBio_on_git/Labs/Lab01/
-
-#5. A data-subsetting problem to only have swallows without the 
-
-$ grep -w Swallow BirdList.txt | grep -v Swallow-tail | grep -v Hirundinidae | wc -l
-
 #5 Homework
 
 $ file PredPreyData.csv
 $ less PredPreyData.csv
 $ head PredPreyData.csv
 $ tail PredPreyData.csv
-
 $ wc PredPreyData.csv
-
-$ command PredPreyData.csv
-
-$ command options PredPreyData.csv
-
-$ wc -l PredPreyData.csv
-
-$ grep ??? PredPreyData.csv >> Predator.txt
 
 # Create new file with only columns 2 through 4
 
@@ -40,7 +25,8 @@ $ cut -f 2-4 -d , PredPreyData.csv > PredPrey2_4.csv
 $ head -n 1 PredPrey2_4.csv > PredPreyOut.csv
 $ tail PredPrey2_4.csv >> PredPreyOut.csv
 
-#View new file with header and last 10 lines
+#View new file with header and last 10 lines and check work
 $ less PredPreyOut.csv
 $ wc PredPreyOut.csv
 $ wc -l PredPreyOut.csv
+
