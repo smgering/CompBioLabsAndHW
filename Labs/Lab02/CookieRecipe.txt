@@ -1,3 +1,5 @@
+Practiced editing and committing cookie recipe using nano
+
 Lab 02 Cookie Recipe - Sarah Gering
 
 No Roll Sugar Cookie
