@@ -1,0 +1,1 @@
+This Directory contains all of the lab homework for Computational Biology EBIO 5420.
