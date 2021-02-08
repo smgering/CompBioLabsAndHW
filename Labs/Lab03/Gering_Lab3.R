@@ -68,6 +68,8 @@ Episodes <- c("I", "II", "III", "IV", "V", "VI", "VII", "VIII","IX")
 # Lab step #15: add the roman numeral episode names to the rows of the dataframe  with you and friends ranking.
 
 row.names(myDf1) <- Episodes
+row.names(myMat) <- Episodes
+
 
 # Lab step #16: accessing the third row of the matrix
 
@@ -103,7 +105,39 @@ myDf1[c(2,5,7), ]
 
 myDf1[c(4,6), c(2,4)]
 
+# Lab step #23: Switch Lenny’s rankings for Episodes II and V
 
+myDf1[c(2), c(3)] <- 8
 
+myDf1[c(5), c(3)] <- 5
 
+myDf1
+
+# Lab step #24: Try (allRankings["III", "Penny"]) with the matrix from step 10 and  the data frames from step 12 
+
+myDf1
+
+myDf1["III", "PenVec"]
+
+myMat
+
+myMat["III", "Penvec"]
+
+# Lab step #25: Use ranking to undo switch
+
+myDf1["II", "LenVec"] <- 5
+myDf1["V", "LenVec"] <- 8
+
+myDf1
+
+# Lab step #26: (26) Use the $ method to re-do the switch from step 23.
+
+str(myDf1)
+
+myDf1$LenVec[2] <- 8
+myDf1$LenVec[5] <- 5
+
+myDf1
+
+# Lab step #27: Saved script and pushed to git
 
