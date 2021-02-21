@@ -62,7 +62,7 @@ i
 
 #5b
 
-for ( i in seq (1,18) ) {
+for ( i in seq(1,18) ) {
   i <- ( i * 3 )
   print( i )
 }
@@ -97,7 +97,7 @@ F1 <- 0
 F2 <- 1
 F3 <- (F1 + F2)
 
-for ( Ft in 1:20 ) {
+for ( i in seq(0,20) ) {
   F3 <- F1 + F2
   F1 <- F2
   F2 <- F3
@@ -114,17 +114,10 @@ r <-  0.8
 for (i in 1:t) {
   n1 <- ((n + ((r * n) * ((K - n) / K ))))
   n <- n1
-  abundance = print(n)
-  time = c(1:12)
-  abundance <- c(4000, 5920, 7852.288, 9201.444, 9789.274, 9954.302, 9990.693, 9998.132, 9999.626, 9999.925, 9999.985, 9999.997)
-  plot(time, abundance)
+  print(n)
 }
 
-# There must be an easier way to assign my loop results to variable names, but I'm having difficulty doing so while trying to plot the results within the for loop.
-
-time <- 1:12
-abundance <- c(4000, 5920, 7852.288, 9201.444, 9789.274, 9954.302, 9990.693, 9998.132, 9999.626, 9999.925, 9999.985, 9999.997)
-
-plot(time, abundance)
+myResults <- data.frame("time" = 1:12, "abundance" = c(4000, 5920, 7852.288, 9201.444, 9789.274, 9954.302, 9990.693, 9998.132, 9999.626, 9999.925, 9999.985, 9999.997))
+plot(myResults)
 
 #Save and push to Github
