@@ -1,4 +1,4 @@
-This directory contains my lab coursework for Computational Biology EBIO 5420 taught by DR. Sam Flaxman at the University of Colorado Boulder during the spring semester of 2021.
+This directory contains my lab coursework for Computational Biology EBIO 5420 taught by Dr. Sam Flaxman at the University of Colorado Boulder during the spring semester of 2021.
 
 These labs' goals are to develop a strong working knowledge in programming using my computer terminal, GitHub and R Studio. 
 
