@@ -66,5 +66,5 @@ myResults <- data.frame("generations" = 1:12, "abundance" = myResults)
 write.csv(x = myResults, file = "LogisticGrowth.csv", row.names = FALSE)
 
 # Question 3f - make a markdown document with script
-
+# Markdown created
 

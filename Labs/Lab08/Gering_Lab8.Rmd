@@ -11,7 +11,7 @@ output:
 
 ```{LOGISTIC GROWTH BACKGROUND}
 
-This document contains the functions about the logistic growth model that measures the populations abundances over time given an intrinsic growth rate, starting population, carrying capacity, and generations. You can find the final metadata and results file [here](https://github.com/smgering/CompBioLabsAndHW/tree/main/Labs08)
+This document contains the functions about the logistic growth model that measures the populations abundances over time given an intrinsic growth rate, starting population, carrying capacity, and generations. You can find the final metadata and results file [here](https://github.com/smgering/CompBioLabsAndHW/tree/main/Labs08/LogisticGrowth.csv)
 
 ```
 
