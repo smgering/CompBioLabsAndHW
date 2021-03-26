@@ -3,8 +3,9 @@ title: "Lab 08"
 author: "Sarah Gering"
 date: "3/12/2021"
 output:
-  word_document: default
   html_document: default
+  pdf_document: default
+  word_document: default
 ---
 
 ## LOGISTIC GROWTH BACKGROUND
