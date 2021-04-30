@@ -107,9 +107,23 @@ write.csv(CombinedData, file = "CombinedData") # Save full combined table
 
 str(CombinedData)
 
-ggplot( data = CombinedData ) + geom_point( aes(Proteobacteria , fIIIa_prime_meth, color = Sample_type) )
 ggplot( data = CombinedData ) + geom_point( aes(Atribacteria , fIIIa_prime_meth, color = Sample_type) )
 ggplot( data = CombinedData ) + geom_point( aes(Acidobacteria , fIIIa_prime_meth, color = Sample_type) )
+
+# Make plot of all sample types with one taxa and one biolipid class
+proteo_allsample <- ggplot( data = CombinedData ) + geom_point( aes(Proteobacteria , fIIIa_prime_meth, color = Sample_type) ) + 
+  labs(x = "Relative Abundance", y = "Biolipid Class", colour = "") + # Adds labeles to axis
+  theme(panel.border = element_rect(colour = "black", fill = NA, size = 1), panel.background = element_rect(fill = "white"), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+  theme(text = element_text(size = 10)) +
+  theme_bw() + 
+  ggtitle("Biolipid to Proteobacteria by Sample Type") + 
+  theme(axis.title = element_text(face = "bold", size = 12), # bolds and changes size of axis fonts
+        axis.text = element_text(size = 14),
+        legend.position = "right", # places plot legend on bottom
+        panel.grid = element_blank(), # Removes grid from plot background
+        axis.text.x = element_blank())
+        
+proteo_allsample
 
 # After viewing several plots, it appears that soil microbes are distinctly grouped from the same phyla in the sediments.
 # Focusing on surface sediments only
@@ -201,4 +215,3 @@ library(cowplot) # Package allows multiple graphs in one image
 plot_grid(Acido_lipid_plot, Acido_lipid_plot_2, Acido_lipid_plot_3, nrow = 3, labels = c('A', '', 'C'))
 
 print(summary(lm_fit_acido)) # three lipid classes and pH significant used with graphs
-
