@@ -15,14 +15,15 @@ library(tidyverse) # Important for tidying data and using ggplot2 for plotting g
 library(cowplot) # Package allows plotting multiple graphs in one image
 
 #input file names for combining mapping file and OTU table
+
 tax_table_fp <- 'seqtab_wTax_mctoolsr.txt'
 map_fp <- 'metadata.txt'
 
 #Combine mapping file and table
 
-input = load_taxa_table(tax_table_fp, map_fp) # THis combines the mapping and metadata files together using mctoolsR
+input = load_taxa_table(tax_table_fp, map_fp) # This combines the mapping and metadata files together using package mctoolsr
 
-# I need to rarify microbiome data to lowest number of reads
+# I need to rarefy microbiome data to lowest number of reads
 
 seqcounts <- as.data.frame(sort(colSums(input$data_loaded)))
 
@@ -32,11 +33,11 @@ seqcounts # View lowest number of reads
 
 input_rar = single_rarefy(input, 19985)
 
-#After rarefied and filtering I saved dataset as a .rds file.
+#After rarefied and filtering, I saved dataset as a .rds file.
 
 saveRDS(input_rar, file = "input_rar.rds")
 
-input_rar <- readRDS("input_rar.rds") # This is the point in which we can begin analysis
+input_rar <- readRDS("input_rar.rds") # This is the point in which data is ready and we can begin analysis
 
 #---------------------------
 
@@ -49,9 +50,9 @@ is.na(Microbial_Dataset$taxonomy_loaded) # Check for NAs at each taxonomy level
 
 # Create a taxonomy table with relative abundances from phyla combined
 
-tax_sum_phylum = summarize_taxonomy(Microbial_Dataset, level = 2, report_higher_tax = FALSE) # Summarize taxonomy realtive abundace table from package mctoolsR
+tax_sum_phylum = summarize_taxonomy(Microbial_Dataset, level = 2, report_higher_tax = FALSE) # Summarize taxonomy relative abundace table from package mctoolsr
 
-plot_ts_heatmap(tax_sum_phylum, Microbial_Dataset$map_loaded, 0.01,"Sample_type") # Used from mctoolsR package to see top phylum for dataset
+plot_ts_heatmap(tax_sum_phylum, Microbial_Dataset$map_loaded, 0.01,"Sample_type") # Used from mctoolsr package to see top phylum for dataset
 
 write.csv(tax_sum_phylum, file = "rel_abundance_phyla")
 
@@ -196,6 +197,7 @@ Acido_lipid_plot_3 <- ggplot(Sediments_Only, aes(Acidobacteria, fIIa_meth, shape
 library(cowplot) # Package allows multiple graphs in one image
 
 # Plot all three biolipid classes with taxa together
+
 plot_grid(Acido_lipid_plot, Acido_lipid_plot_2, Acido_lipid_plot_3, nrow = 3, labels = c('A', '', 'C'))
 
 print(summary(lm_fit_acido)) # three lipid classes and pH significant used with graphs
