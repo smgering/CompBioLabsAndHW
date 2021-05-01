@@ -1,18 +1,18 @@
 # Lab_04
 
-# 1 print hi 10 times to the console
+# Question 1 print hi 10 times to the console
 
 for (hi in 1:10) {
   print ("hi")
 }
 
-#2 Tim's money total for 8 weeks
+# Question 2 Tim's money total for 8 weeks
 
 piggyBank <- 10 # dollars
 allowance <- 5 # dollars per week
 gumCost <- 2 * 1.34 # cost of 2 packs of gum per week
 weeks <- 8 # timeframe
-
+ 
 x <- (piggyBank + allowance - gumCost)
 
 for (i in 1:weeks) {
@@ -21,7 +21,7 @@ for (i in 1:weeks) {
   print( newBalance )
 }
 
-#3 Calculate population size for the next seven years
+# Question 3 Calculate population size for the next seven years
 
 currentpop <- 2000
 shrink <- 0.05
@@ -36,7 +36,7 @@ for (i in 1:years) {
   print( currentpop )
 }
 
-#4 models of a discrete-time logistic growth equation
+# Question 4 models of a discrete-time logistic growth equation
 
 #n[t] <- n[t-1] + ( r * n[t-1] * (K - n[t-1])/K )
 
@@ -48,24 +48,26 @@ K <- 10000
 r <-  0.8
 
 for (i in 1:t) {
+  print(n)
   n1 <- ((n + ((r * n) * ((K - n) / K ))))
   n <- n1
-  print(n)
 } 
 
-#The answer to n[12] is 9999.997. This makes sense because the carrying capacity is 10000, so the population cannot exceed that amount.
+#The answer to n[12] is 9999.985. Since the first set of abundance of 2500 was at time step 1. This makes sense because the carrying capacity is 10000, so the population cannot exceed that amount.
 
-#5a
+# Question 5a
 
-i <- rep(0, 18)
-i
+x <- rep(0, 18)
+x
 
-#5b
-
+# Question 5b
+x <- rep(1,18)
 for ( i in seq(1,18) ) {
-  i <- ( i * 3 )
-  print( i )
+  x[i] <- ( x[i] * 3 ) # SMF COMMENT: Don't change the value of the iterator inside a loop!
 }
+x
+# SMF COMMENT: Part of the goal of 5b was to store the values in a vector, 
+# SMF COMMENT: not print them out per se.
 
 #Or another way to answer 5b
 x <- 0
@@ -75,22 +77,23 @@ for ( i in seq(1,18) ) {
   print( x )
 }
 
-
-#5c
+# Question 5c
 
 i2 <- rep(0, 18)
 
 i2[1] <- 1
 
-#5d
+# Question 5d
 
 for ( i in i2 ) {
   i3 <- (1 + (2 * i2))
   i2 <- i3
   print(i2)
 }
+# SMF COMMENT: similarly to 5b, part of the goal here was to store
+# SMF COMMENT: the results of each step in a vector
 
-#6 Fibonacci sequences
+# Question 6 - Fibonacci sequences
 
 Ft <- rep(0, 20)
 F1 <- 0
@@ -104,20 +107,25 @@ for ( i in seq(0,20) ) {
   print(F3)
 } 
 
-#7 Redoing question 4, but storing data and plotting within the loop
+# Question 7 - Redoing question 4, but storing data and plotting within the loop
 
 t <- 12
 n <- 2500
 K <- 10000
 r <-  0.8
 
-for (i in 1:t) {
-  n1 <- ((n + ((r * n) * ((K - n) / K ))))
-  n <- n1
-  print(n)
-}
+abundance <- rep(n, t) # This is for storing the data prior to running the for loop
 
-myResults <- data.frame("time" = 1:12, "abundance" = c(4000, 5920, 7852.288, 9201.444, 9789.274, 9954.302, 9990.693, 9998.132, 9999.626, 9999.925, 9999.985, 9999.997))
+for (i in 2:t) {
+  abundance[i] <- ((abundance[i-1] + ((r * abundance[i-1]) * ((K - abundance[i-1]) / K )))) 
+}
+print(abundance) 
+
+# This process begin with a vector of 2500 in the first position, recursive steps
+
+myResults <- data.frame("time" = 1:12, "abundance" = abundance)
+
 plot(myResults)
 
+#fibonacci is two steps of recursive where i-1 and i -2, then add them 
 #Save and push to Github

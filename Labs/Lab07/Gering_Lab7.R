@@ -81,7 +81,8 @@ Fibonacci <- function( n ) {
 Fibonacci(3)
 Fibonacci(8)
 Fibonacci(15)
-
+# SMF COMMENT: Great job!  The one thing the function was missing was the ability to choose the
+# SMF COMMENT: start value to be zero or one (see problem definition)
 
 # Problem #4a
 
@@ -103,13 +104,13 @@ myFunction(vector, 4) # Impressive, I though that I might have to use length for
 # Problem #4b
 
 # Function definition 
-# Ok, I know that I need to create a function that captures not only the vector, but also the length of the numbers os I can average them.
+# Ok, I know that I need to create a function that captures not only the vector, but also the length of the numbers as I can average them.
+
+# Updated this section and removed the for loop as it was unnecessary
 
 myFunction2 <- function(x) {
   y <- length(x)
-  for ( i in 1:length(y) ) {
-    func <- sum(x)/y
-  }
+  func <- sum(x)/y
   return(func)
 }
 
@@ -124,23 +125,23 @@ length(dataLab7[[1]]) # Checking number of rows
 col_x <- dataLab7$x # create a vector of these numbers
 str(col_x)
 
-myFunction2(col_x) # THe function worked and too the average of all of the columnes in the data file
+myFunction2(col_x)
 
 # Problem #4c - sum of squares function - Oh no, this one is really tricky
 
 # Function definition 
 
 myFunction3 <- function( x ) {
-  y <- length(x)
+  y <- length( x )
   for ( i in 1:length(x) ) {
-    mean <- sum(x[i])/y
-    func <- sum((x[i] - mean)^2)
+    mean <- sum( x[i] )/ y
+    func <- sum((x[i] - mean[i])^2)
   }
   return(func)
 }
 
-
 # Demonstration of usage:
 
 myFunction3(col_x)
-
+# SMF COMMENT: your function didn't work because it only worked with the very last value of x.  Do you see why?
+# SMF COMMENT: You would have been better served to NOT have a loop.
